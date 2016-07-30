@@ -46,7 +46,8 @@ function select_theater(){
 		$sum ++;
 		//$gg = selectgroupbyid($obj->GroupID);
 		print "<tr>
-    	<th scope=\"row\">". $obj["id"]      . "</th> 
+		<td> <input type='checkbox' name='delete[]' value='". $obj["id"] ."' /> </td>
+    	<th scope=\"row\">". $sum  . "</th> 
     	<td>". $obj["name"]    ."</td> 
     	<td>". $obj['province']." </td>
     	<td>". $obj['city']    ."</td> 
@@ -74,6 +75,17 @@ function update_theater_by_id($id, $address, $manager, $investment_volume, $stat
 		investment_volume = ".$investment_volume.",
 		state = '".$state."'
 		where id = ". $id . ";";
+	$stmt = query2($tsql);
+}
+
+function delete_theater_by_id($id) {
+	$tsql = "delete from theater where id = $id";
+	$stmt = query2($tsql);
+}
+
+function insert_theater($name, $manager, $province, $city, $address, $investment_volume, $state){
+	$tsql = "insert into theater(manager, name, province, city, address,investment_volume,state) values
+	('$name', '$manager', '$province', '$city', '$address', $investment_volume, '$state')";
 	$stmt = query2($tsql);
 }
 
