@@ -29,6 +29,19 @@ CREATE TABLE IF NOT EXISTS movie (
 	image_medium VARCHAR(100),
 	image_large VARCHAR(100),
 	summary VARCHAR(2000),
+	released_date date,
+	per_cost FLOAT,
 	PRIMARY KEY(id)
 );
 
+CREATE TABLE IF NOT EXISTS showing (
+	id INT NOT NULL AUTO_INCREMENT,
+	movie_id int not null,
+	theater_id int not null,
+	start_time DATETIME,
+	end_time DATETIME,
+	price FLOAT,
+	PRIMARY KEY(id),
+	foreign key(movie_id) references movie(id),
+	foreign key(theater_id) references theater(id)
+);

@@ -19,6 +19,8 @@ function connect_db(){
          echo "Connection could not be established.\n";
          die( print_r( sqlsrv_errors(), true));
     }
+    date_default_timezone_set('PRC');
+    session_start();
 }
 
 //-----------------------------------------------
@@ -62,6 +64,32 @@ function select_theater(){
     mysqli_free_result($stmt);
 }
 
+function select_theater2(){
+    $tsql = "SELECT * from theater;";
+    $stmt = query2($tsql);
+
+    /* Retrieve each row as a PHP object and display the results.*/
+    $sum = 0;
+    while( $obj = mysqli_fetch_array($stmt, MYSQLI_ASSOC) )
+    {
+        $sum ++;
+        //$gg = selectgroupbyid($obj->GroupID);
+        print "<tr>
+        <th scope=\"row\">". $sum  . "</th> 
+        <td>". $obj["name"]    ."</td> 
+        <td>". $obj['province']." </td>
+        <td>". $obj['city']    ."</td> 
+        <td>". $obj['manager'] ."</td>
+        <td>". $obj['state']   ."</td>
+        <td> <a href=\"theater_manage.php?id=" .$obj["id"] ."\" >manage!</a></td>
+        </tr>";
+    }
+
+/* Free statement and connection resources. */
+    mysqli_free_result($stmt);
+}
+
+
 function select_movie(){
     $tsql = "SELECT * from movie;";
     $stmt = query2($tsql);
@@ -76,9 +104,9 @@ function select_movie(){
         <td> <input type='checkbox' name='delete[]' value='". $obj["id"] ."' /> </td>
         <th scope=\"row\">". $sum  . "</th> 
         <td>". $obj["original_title"]    ."</td> 
-        <td>". $obj['chinese_title']." </td>
         <td>". $obj['directors']    ."</td> 
-        <td>". $obj['rating'] ."</td>
+        <td>". $obj['released_date']." </td>
+        <td>". $obj['per_cost'] ."</td>
         <td> <a href=\"theater_detail.php?id=" .$obj["id"] ."\" >check</a></td>
         </tr>";
     }
@@ -86,6 +114,68 @@ function select_movie(){
 /* Free statement and connection resources. */
     mysqli_free_result($stmt);
 }
+
+
+function select_movie2(){
+    $tsql = "SELECT * from movie;";
+    $stmt = query2($tsql);
+
+    /* Retrieve each row as a PHP object and display the results.*/
+    $sum = 0;
+    while( $obj = mysqli_fetch_array($stmt, MYSQLI_ASSOC) )
+    {
+        $sum ++;
+        //$gg = selectgroupbyid($obj->GroupID);
+        print "<option value='".$obj["id"]."''>".$obj["original_title"]."</option>";
+    }
+
+/* Free statement and connection resources. */
+    mysqli_free_result($stmt);
+}
+
+function select_showing_by_id($id){
+    $tsql = "SELECT * from showing where theater_id = $id;";
+    $stmt = query2($tsql);
+
+    /* Retrieve each row as a PHP object and display the results.*/
+    $sum = 0;
+    while( $obj = mysqli_fetch_array($stmt, MYSQLI_ASSOC) )
+    {
+        $sum ++;
+        //$gg = selectgroupbyid($obj->GroupID);
+        print "<tr>
+        <td> <input type='checkbox' name='delete[]' value='". $obj["id"] ."' /> </td>
+        <th scope=\"row\">". $sum  . "</th> 
+        <td>". get_movie_name_by_id($obj["movie_id"])    ."</td> 
+        <td>". date('Y-m-d',strtotime($obj['start_time'])) ."</td> 
+        <td>". date('h:i',strtotime($obj['start_time']))." </td>
+        <td>". attendance() ."</td>
+        </tr>";
+    }
+
+/* Free statement and connection resources. */
+    mysqli_free_result($stmt);
+}
+
+function attendance() {
+    return 0;
+}
+function get_movie_name_by_id($id){
+    $tsql = "SELECT * from movie where id = $id;";
+    $stmt = query2($tsql);
+
+    /* Retrieve each row as a PHP object and display the results.*/
+    $sum = 0;
+    while( $obj = mysqli_fetch_array($stmt, MYSQLI_ASSOC) )
+    {
+        return $obj["original_title"];
+    }
+
+/* Free statement and connection resources. */
+    mysqli_free_result($stmt);
+}
+
+
 
 function select_theater_by_id($id){
     $tsql = "SELECT * from theater where id = ". $id . ";";
@@ -121,6 +211,13 @@ function insert_theater($name, $manager, $province, $city, $address, $investment
     $stmt = query2($tsql);
 }
 
+function insert_showing($movie_id, $theater_id, $start, $end, $price) {
+    $tsql = "insert into showing(movie_id, theater_id, start_time,
+     end_time, price) values
+    ($movie_id, $theater_id, '$start', '$end', $price)";
+    $stmt = query2($tsql);
+}
+
 function close_db(){
     global $conn;
 /* Close the connection. */
@@ -138,7 +235,7 @@ function my_join($obj) {
        // print "$re<br/>";
     return $re;
 }
-function insert_movie_by_id($id){
+function insert_movie_by_id($id, $date, $cost){
     $url = "http://api.douban.com/v2/movie/subject/$id";
     $html = file_get_contents($url);
     $obj = json_decode($html, true);
@@ -154,7 +251,8 @@ function insert_movie_by_id($id){
     $summary = $obj["summary"];
     $tsql = "insert into movie values
     ($id,'$original_title','$chinese_title','$directors','$casts',
-    '$countries','$genres',$rating,'$image_medium','$image_large','$summary');";
+    '$countries','$genres',$rating,'$image_medium','$image_large','$summary',
+    $date, $cost);";
     $stmt = query2($tsql);
 }
 ?>

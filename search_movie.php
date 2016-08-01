@@ -168,7 +168,7 @@
            <br/><br/>
            <p>
              cost per tick:<br/>
-             <input id = "cost" type="text" name="cost"/>
+             <input id = "cost" type="text" name="cost" value="10"/>
            </p>
           </p>
       <p>
