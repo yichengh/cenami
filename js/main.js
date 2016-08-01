@@ -254,13 +254,18 @@
 			// 	complete:function(){location.href ="default.aspx"}//跳转页面
 			// })
 			var form = $("<form method='post'></form>");
-	        form.attr({"action":"test.php"});
+	        form.attr({"action":"confirm.php"});
 	        //for (arg in args)
 	        //{
 	            var input = $("<input type='hidden'>");
 	            input.attr({"name":"seats"});
 	            input.val(array);
 	            form.append(input);
+	            var id = $("#get_id").html();
+	            var input2 = $("<input type='hidden'>");
+	            input2.attr({"name":"showing_id"});
+	            input2.val(id);
+	            form.append(input2);
 	        //}
 	        form.submit();
 

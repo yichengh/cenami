@@ -175,7 +175,6 @@ function select_showing_by_id($id){
         <td>". attendance() ."</td>
         </tr>";
     }
-
 /* Free statement and connection resources. */
     mysqli_free_result($stmt);
 }
@@ -289,6 +288,17 @@ function insert_showing($movie_id, $theater_id, $start, $end, $price) {
     ($movie_id, $theater_id, '$start', '$end', $price)";
     $stmt = query2($tsql);
 }
+
+
+function insert_seat_sold($showing_id, $seat) {
+    //echo $seat;
+    $x = ord($seat[0]) - 65 + 1;
+    $y = $seat[1];
+     $tsql = "insert into seat_sold values
+     ($showing_id, $x, $y)";
+    $stmt = query2($tsql);
+}
+
 
 function close_db(){
     global $conn;
