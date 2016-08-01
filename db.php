@@ -172,7 +172,7 @@ function select_showing_by_id($id){
         <td>". get_movie_name_by_id($obj["movie_id"])    ."</td> 
         <td>". date('Y-m-d',strtotime($obj['start_time'])) ."</td> 
         <td>". date('h:i',strtotime($obj['start_time']))." </td>
-        <td>". attendance() ."</td>
+        <td>". attendance($obj["id"]) ."</td>
         </tr>";
     }
 /* Free statement and connection resources. */
@@ -215,8 +215,11 @@ function select_showing_by_date($id, $date){
     return $result;
 }
 
-function attendance() {
-    return 0;
+function attendance($id) {
+    $tsql = "SELECT count(*) as count from seat_sold where showing_id = $id;";
+    $stmt = query2($tsql);
+    $obj = mysqli_fetch_array($stmt, MYSQLI_ASSOC);
+    return round($obj["count"] / 324 * 100, 2);
 }
 function get_movie_name_by_id($id){
     $tsql = "SELECT * from movie where id = $id;";
