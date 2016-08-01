@@ -45,3 +45,12 @@ CREATE TABLE IF NOT EXISTS showing (
 	foreign key(movie_id) references movie(id),
 	foreign key(theater_id) references theater(id)
 );
+
+CREATE TABLE IF NOT EXISTS seat_sold (
+	showing_id int not null,
+	x int not null,
+	y int not null,
+	foreign key(showing_id) references showing(id)
+);
+
+insert into seat_sold values(6, 6, 6),(6, 6, 7),(6, 6, 8);

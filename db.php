@@ -89,6 +89,29 @@ function select_theater2(){
     mysqli_free_result($stmt);
 }
 
+function select_theater3(){
+    $tsql = "SELECT * from theater;";
+    $stmt = query2($tsql);
+
+    /* Retrieve each row as a PHP object and display the results.*/
+    $sum = 0;
+    while( $obj = mysqli_fetch_array($stmt, MYSQLI_ASSOC) )
+    {
+        $sum ++;
+        //$gg = selectgroupbyid($obj->GroupID);
+        print "<tr>
+        <th scope=\"row\">". $sum  . "</th> 
+        <td>". $obj["name"]    ."</td> 
+        <td>". $obj['province']." </td>
+        <td>". $obj['city']    ."</td> 
+        <td> <button id=\"" .$obj["id"] ."\" >buy!</button></td>
+        </tr>";
+    }
+
+/* Free statement and connection resources. */
+    mysqli_free_result($stmt);
+}
+
 
 function select_movie(){
     $tsql = "SELECT * from movie;";
@@ -157,6 +180,42 @@ function select_showing_by_id($id){
     mysqli_free_result($stmt);
 }
 
+function select_showing_by_date($id, $date){
+    $tsql = "SELECT * from showing where theater_id = $id and date(start_time) = '$date';";
+    $stmt = query2($tsql);
+
+    /* Retrieve each row as a PHP object and display the results.*/
+    $sum = 0;
+    $result = "
+      <table class='table'>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>movie</th>
+            <th>start_time</th>
+            <th>end_time</th>
+            <th>price</th>
+            <th>buy?</th>
+          </tr>
+        </thead>";
+
+    while( $obj = mysqli_fetch_array($stmt, MYSQLI_ASSOC) )
+    {
+        $sum ++;
+        //$gg = selectgroupbyid($obj->GroupID);
+        $result = $result . "<tr>
+        <th>". $sum  . "</th> 
+        <td>". get_movie_name_by_id($obj["movie_id"])    ."</td> 
+        <td>". date('h:i',strtotime($obj['start_time'])) ."</td> 
+        <td>". date('h:i',strtotime($obj['end_time']))." </td>
+        <td>". $obj['price']." </td>
+        <td> <a href='seat.php?id=".$obj["id"]."'>buy</a></td>
+        </tr>";
+    }
+    $result = $result ."</table>";
+    return $result;
+}
+
 function attendance() {
     return 0;
 }
@@ -182,6 +241,19 @@ function select_theater_by_id($id){
     $stmt = query2($tsql);
     $obj = mysqli_fetch_array($stmt, MYSQLI_ASSOC);
     return $obj;
+}
+
+
+function select_seat_sold_by_id($id){
+    $tsql = "SELECT * from seat_sold where showing_id = $id;";
+    $stmt = query2($tsql);
+    $result = array();
+    /* Retrieve each row as a PHP object and display the results.*/
+    while( $obj = mysqli_fetch_array($stmt, MYSQLI_ASSOC) )
+    {
+        array_push($result, array("x" => $obj["x"], "y" => $obj["y"]));
+    }
+    return $result;
 }
 
 function update_theater_by_id($id, $address, $manager, $investment_volume, $state){

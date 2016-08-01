@@ -1,0 +1,15 @@
+#ignore image files
+photo/*
+*.jpg
+*.png
+*.JPG
+
+#ignore video files
+media/*
+*.mp4
+
+#ignore txt files
+*.txt
+
+#ignore exe files
+*.exe
