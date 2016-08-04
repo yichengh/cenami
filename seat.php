@@ -28,7 +28,7 @@
 			<div class="cube__side cube__side--back">
 				<div class="screen">
 					<div class="video">
-						<video class="video-player" src="media/demo.mp4" preload="auto" poster="media/demo1.jpg">
+						<video class="video-player" src="media/demo.mp4" preload="auto" poster="media/demo.jpg">
 						</video>
 						<button class="action action--play action--shown" aria-label="Play Video"></button>
 					</div>

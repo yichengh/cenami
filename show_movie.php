@@ -49,7 +49,7 @@
 <div class="site-main">
   <div class="inner clearfix">
 
-    <h2>Show all movies!</h2>
+    <h2>This is the movie list.</h2>
     <?php 
         connect_db();
 

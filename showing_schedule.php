@@ -99,14 +99,14 @@
           $de = $_POST["delete"];
           $N = count($de);
           for ($i = 0; $i < $N; $i++){
-            delete_theater_by_id($de[$i]);
+            delete_showing_by_id($de[$i]);
           }
         }
         
     ?>
 
-    <h2>This is the showings of <?php echo $name?></h2>
-    <form action="show_theater.php" method="post">
+    <h2>This is the showings of <i><?php echo $name?></i></h2>
+    <form action="showing_schedule.php" method="post">
       <table class="table">
         <thead>
           <tr>
@@ -129,7 +129,7 @@
     <br/>
     <br/>
     <h2>Add new showing?</h2>
-    <form action="theater_manage.php" method="post" onsubmit="return check();">
+    <form action="showing_schedule.php" method="post" onsubmit="return check();">
       <input type="hidden" name="theater_id" value = <?php print "'$theater_id'";?>/>
       <!-- <div class="row"> -->
         <p class="alert bg-primary">

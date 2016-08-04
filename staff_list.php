@@ -61,13 +61,13 @@
     <?php 
         //echo $id;
         $obj = select_theater_by_id($id);
-        print "<h3>" . $obj["name"] . " Staff List</h3>"
+        print "<h3><i>" . $obj["name"] . " </i>'s Staff List</h3>"
     ?>
     <form action="show_theater.php" method="post">
       <table class="table">
         <thead>
           <tr>
-            <th>#</th>
+            <th>ID</th>
             <th align="center">name</th>
             <th>gender</th>
             <th>rank</th>

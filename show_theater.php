@@ -62,7 +62,8 @@
 <div class="site-main">
   <div class="inner clearfix">
 
-    <h2>Show all theaters!</h2>
+    <h2>This is the theater list.</h2>
+    <p> you could check staffs or manage showing schedule. </p>
     <?php 
         connect_db();
         if (isset($_POST['name'])){

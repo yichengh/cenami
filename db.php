@@ -54,8 +54,8 @@ function select_theater(){
         <td>". $obj['address']." </td>
         <td>". $obj['tel']    ."</td> 
         <td> North America </td>
-        <td> <a href=\"theater_detail.php?id=" .$obj["id"] ."\" >check</a></td>
-        <td> <a href=\"theater_manage.php?id=" .$obj["id"] ."\" >manage!</a></td>
+        <td> <a href=\"staff_list.php?id=" .$obj["id"] ."\" >check</a></td>
+        <td> <a href=\"showing_schedule.php?id=" .$obj["id"] ."\" >manage!</a></td>
         </tr>";
     }
 
@@ -64,7 +64,12 @@ function select_theater(){
 }
 
 function select_staff_by_id($id){
-    $tsql = "SELECT * from staff where theater_id = $id;";
+    $tsql = "SELECT * from staff where theater_id = $id order by case rank 
+    when 'officer' then 1
+    When 'senior'   then 2
+    when 'expert'   then 3
+    when 'assistant'   then 4
+    end ASC;";
     $stmt = query2($tsql);
 
     /* Retrieve each row as a PHP object and display the results.*/
@@ -74,7 +79,7 @@ function select_staff_by_id($id){
         $sum ++;
         //$gg = selectgroupbyid($obj->GroupID);
         print "<tr>
-        <th scope=\"row\">". $sum  . "</th> 
+        <th scope=\"row\">". $obj["id"]  . "</th> 
         <td>". $obj["name"]    ."</td> 
         <td>". $obj['gender']." </td>
         <td>". $obj['rank']    ."</td> 
@@ -102,7 +107,7 @@ function select_theater2(){
         <td>". $obj['city']    ."</td> 
         <td>". $obj['manager'] ."</td>
         <td>". $obj['state']   ."</td>
-        <td> <a href=\"theater_manage.php?id=" .$obj["id"] ."\" >manage!</a></td>
+        <td> <a href=\"showing_schedule.php?id=" .$obj["id"] ."\" >manage!</a></td>
         </tr>";
     }
 
@@ -150,7 +155,7 @@ function select_movie(){
         <td>". $obj['directors']    ."</td> 
         <td>". $obj['released_date']." </td>
         <td>". $obj['per_cost'] ."</td>
-        <td> <a href=\"theater_detail.php?id=" .$obj["id"] ."\" >check</a></td>
+        <td> <a href=\"staff_list.php?id=" .$obj["id"] ."\" >check</a></td>
         </tr>";
     }
 
@@ -319,6 +324,10 @@ function delete_movie_by_id($id) {
     $stmt = query2($tsql);
 }
 
+function delete_showing_by_id($id) {
+    $tsql = "delete from showing where id = $id";
+    $stmt = query2($tsql);
+}
 
 function insert_theater($name, $manager, $province, $city, $address, $investment_volume, $state){
     $tsql = "insert into theater(manager, name, province, city, address,investment_volume,state) values

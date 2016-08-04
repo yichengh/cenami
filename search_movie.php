@@ -49,7 +49,7 @@
 <div class="site-main">
   <div class="inner clearfix">
 
-    <h2>search by name!</h2>
+    <h2>search by name.</h2>
     <?php 
         connect_db();
     ?>
