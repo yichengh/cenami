@@ -2,7 +2,7 @@
 <?php include 'db.php'; ?>
 <head>
 
-<title>Flower & Grass</title>
+<title>Search Movie</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="keywords" content="" />
@@ -17,7 +17,7 @@
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="style.css">
-<link href="css/jquery.popup.css" rel="stylesheet" type="text/css">
+  <link href="css/jquery.popup.css" rel="stylesheet" type="text/css">
 <script language="javascript">
       function set($title, $id){
         $("#hyc").html($title);
@@ -76,6 +76,7 @@
         $html = file_get_contents($url);
         $obj = json_decode($html, true);
         $N = $obj["total"];
+        if ($N > 5) $N = 5;
         for ($i = 0; $i < $N; $i++){
           $A = $obj["subjects"][$i];
           $id = $A["id"];
@@ -177,9 +178,14 @@
         <button class="popup-close btn btn-danger">Close</button> </p>
       </p>
     </form>
+
+
   </div>
       </div>
-
+      <p>
+      <br/>
+ <a href="show_movie.php"><button class="popup-close btn btn-primary"> Back</button> </a>
+ </p>
 </div>
 
   </div>

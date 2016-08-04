@@ -2,7 +2,7 @@
 <?php include 'db.php'; ?>
 <head>
 
-<title>Flower & Grass</title>
+<title>Please Confirm</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="keywords" content="" />

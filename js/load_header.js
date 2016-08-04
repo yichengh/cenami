@@ -6,7 +6,7 @@ function loadHeader() {
     var html_logo = [];
     html_logo.push("\
     <a href=\"\"> \
-    <img src=\"images/site-logo.png\" height=\"40px\" /> \
+    <img src=\"images/site-logo.png\" height=\"50px\" width=/> \
     </a>");
 
     var html_menu = [];
@@ -16,18 +16,21 @@ function loadHeader() {
             <a href=\"index.html\">Index</a> \
         </li> \
         <li> \
-            <a href=\"time.html\">Time</a> \
+            <a href=\"show_movie.php\">Movie Manage</a> \
         </li> \
         <li> \
-            <a href=\"moments.html\">Moments</a> \
+            <a href=\"show_theater.php\">Theater Manage</a> \
         </li> \
         <li> \
-            <a href=\"videos.html\">Videos</a> \
+            <a href=\"trends_online.php\">Trends Track</a> \
+        </li> \
+        <li> \
+            <a href=\"buy_ticket.php\">Buy Ticket</a> \
         </li> \
     </ul> ");
 
     var html_description = [];
-    html_description.push("A tiny website made for recording our love.");
+    html_description.push("Cenami - the Rearrangement of Cinema.");
 
     var html_footer = [];
     html_footer.push("\
@@ -41,7 +44,7 @@ function loadHeader() {
     </div>");
 
     html_footer.push("\
-    <p>Built by <a href=mailto:anorange0409@gmail.com>anorange0409</a>\
+    <p>Built by <a href=mailto:anorange0409@gmail.com>Yicheng Huang</a>\
     <p> \
     HTML Theme by \
     <a href=\"http://themeraid.com\">ThemeRaid</a> \

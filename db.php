@@ -176,6 +176,27 @@ function select_movie2(){
     mysqli_free_result($stmt);
 }
 
+function select_movie3(){
+    $tsql = "SELECT * from movie;";
+    $stmt = query2($tsql);
+
+    /* Retrieve each row as a PHP object and display the results.*/
+    $sum = 0;
+    while( $obj = mysqli_fetch_array($stmt, MYSQLI_ASSOC) )
+    {
+        $sum ++;
+        print "<tr>
+        <td> <input type='checkbox' name='select[]' value='". $obj["original_title"] ."' /> </td>
+        <th scope=\"row\">". $sum  . "</th> 
+        <td>". $obj["original_title"]    ."</td> 
+        <td>". $obj['directors']    ."</td> 
+        </tr>";
+    }
+
+/* Free statement and connection resources. */
+    mysqli_free_result($stmt);
+}
+
 function select_showing_by_id($id){
     $tsql = "SELECT * from showing where theater_id = $id;";
     $stmt = query2($tsql);

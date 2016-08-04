@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS region (
 
 CREATE TABLE IF NOT EXISTS movie (
 	id INT NOT NULL,
-	original_title VARCHAR(30),
+	original_title VARCHAR(100),
 	chinese_title VARCHAR(30),
 	directors VARCHAR(100),
 	casts VARCHAR(100),

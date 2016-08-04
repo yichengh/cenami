@@ -2,7 +2,7 @@
 <?php include 'db.php'; ?>
 <head>
 
-<title>Flower & Grass</title>
+<title>Thank you!</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="keywords" content="" />
@@ -44,6 +44,16 @@
   <div class="inner clearfix">
 
     <h2>Thank you! </h2>
+    <?php
+$arr=range(1,10);
+shuffle($arr);
+print "<p>Your ticketing number is : ";
+foreach($arr as $values)
+{
+  echo $values;
+}
+print "</p>";
+?>
     <?php 
         connect_db();
 

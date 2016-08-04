@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>可进行3D预览的电影院座位预定系统特效|DEMO_jQuery之家-自由分享jQuery、html5、css3的插件库</title>
+	<title>Select your favorite seats</title>
 	<link rel="stylesheet" type="text/css" href="css/demo.css" />
 	<link rel="stylesheet" type="text/css" href="css/component.css" />
 	<script src="js/modernizr-custom.js"></script>
@@ -19,15 +19,8 @@
 				exit(0);
 			}
 			$id = $_GET['id'];
-			print "<div id=\"get_id\">$id</div>";
+			print "<div style='display:none' id=\"get_id\">$id</div>";
 		?>
-		<div class="codrops-links">
-			<a class="htmleaf-icon icon-htmleaf-home-outline" href="http://www.htmleaf.com/" title="jQuery之家" target="_blank"><span> jQuery之家</span></a>
-			<a class="htmleaf-icon icon-htmleaf-arrow-forward-outline" href="http://www.htmleaf.com/css3/ui-design/cinema-seat-preview-3d.html" title="返回下载页" target="_blank"><span> 返回下载页</span></a>
-		</div>
-		<h1 class="header__title">Cinema Seat Preview</h1>
-		<p class="note note--screen">请在大屏幕上查看效果！</p>
-		<p class="note note--support">对不起，你的浏览器不支持preserve-3d!</p>
 	</header>
 	<div class="container">
 		<div class="cube">
@@ -35,22 +28,19 @@
 			<div class="cube__side cube__side--back">
 				<div class="screen">
 					<div class="video">
-						<video class="video-player" src="media/sintel.mp4" preload="auto" poster="media/sintel.jpg">
-							<source src="media/sintel.ogg" type='video/ogg; codecs="theora, vorbis"'>
-							<source src="media/sintel.mp4" type='video/mp4; codecs="avc1.4D401E, mp4a.40.2"'>
-							<p>对不起，你的浏览器不支持这种video格式。</p>
+						<video class="video-player" src="media/demo.mp4" preload="auto" poster="media/demo1.jpg">
 						</video>
 						<button class="action action--play action--shown" aria-label="Play Video"></button>
 					</div>
 					<div class="intro intro--shown">
 						<div class="intro__side">
 							<h2 class="intro__title">
-								<span class="intro__up">The Open Cinema <em>presents</em></span>
-								<span class="intro__down">Sintel <span class="intro__partial"><em>by</em> <a href="https://durian.blender.org/">The Blender Foundation</a></span></span>
+								<!-- <span class="intro__up"> <em>presents</em></span> -->
+								<span class="intro__down">Furious 7 <span class="intro__partial"><em>by</em> Universal Picture</span></span>
 							</h2>
 						</div>
 						<div class="intro__side">
-							<button class="action action--seats">选择你的座位</button>
+							<button class="action action--seats">Select your favorite seats</button>
 						</div>
 					</div>
 				</div>
@@ -790,9 +780,9 @@
 		</div>
 		<!-- /rows -->
 		<ul class="legend">
-			<li class="legend__item legend__item--free">空闲</li>
-			<li class="legend__item legend__item--reserved">已售出</li>
-			<li class="legend__item legend__item--selected">可购买</li>
+			<li class="legend__item legend__item--free">Available</li>
+			<li class="legend__item legend__item--reserved">Sold</li>
+			<li class="legend__item legend__item--selected">Selected</li>
 		</ul>
 		<button class="action action--buy">买　票</button>
 	</div><!-- /plan -->

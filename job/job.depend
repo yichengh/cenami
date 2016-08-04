@@ -5,3 +5,28 @@
 	<cstdio>
 	<cstring>
 
+1470301510 source:d:\cenami\job\code\create_sql.cpp
+	<iostream>
+	<vector>
+	<cstdio>
+	<cstring>
+	"CSV.h"
+
+1470301483 source:d:\cenami\job\code\csv.cpp
+	"CSV.h"
+
+1470301531 d:\cenami\job\code\csv.h
+	<iostream>
+	<vector>
+	<cstdio>
+	<cstring>
+
+1470307541 source:d:\cenami\job\code\trends.cpp
+	<iostream>
+	<vector>
+	<cstdio>
+	<cstring>
+	<cstdlib>
+	<cmath>
+	"CSV.h"
+
