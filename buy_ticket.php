@@ -57,8 +57,7 @@
           <tr>
             <th>#</th>
             <th align="center">name</th>
-            <th>province</th>
-            <th>city</th>
+            <th>address</th>
             <th>click?</th>
           </tr>
         </thead>
@@ -72,6 +71,8 @@
     <br/>
     <br/>
     <div id="showing">
+    </div>
+    <div id="showing_end">
     </div>
   </div>
 

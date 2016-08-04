@@ -18,7 +18,7 @@
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="style.css"></head>
 
-<body class="about">
+<body class="shortcodes">
 
 <!-- / Site Header -->
 <div class="site-header">
@@ -57,74 +57,31 @@
       $is_update = 1;
     }
   ?>
-    <div class="post gallery-post">
-      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-        </ol>
 
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-          <div class="item active">
-            <img src="photo/theater/1.jpg" alt="...">
-            <div class="carousel-caption"></div>
-          </div>
-          <div class="item">
-            <img src="photo/theater/2.jpg" alt="...">
-            <div class="carousel-caption"></div>
-          </div>
-        </div>
-
-        <!-- Controls -->
-        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-    </div>
     <?php 
         //echo $id;
         $obj = select_theater_by_id($id);
-        print "<h3>" . $obj["name"] . "</h3>"
+        print "<h3>" . $obj["name"] . " Staff List</h3>"
     ?>
-    <form action="theater_detail.php" method="post" onsubmit="return check();">
-        <input type="hidden" name="id" value = <?php print "'".$id."'" ?>/> 
-          <p>address: 
-            <input id = "address" type="text" name="address"  class="form-control" 
-            value = <?php print "'".$obj["address"]."'" ?> /> 
-          </p> 
-          <p>manager: 
-            <input id = "manager"  type="text" name="manager"  class="form-control" 
-            value = <?php print "'".$obj["manager"]."'" ?> />
-          </p>
-          <p>investment_volume(wan cny): 
-            <input id = "investment_volume"  type="text" name="investment_volume"  class="form-control" 
-            value = <?php print "'".$obj["investment_volume"]."'" ?> />
-          </p>
-          <p>state: 
-            <input id = "state"  type="text" name="state"  class="form-control" 
-            value = <?php print "'".$obj["state"]."'" ?> />
-          </p>
-          <p>
-          <input type = "submit"  value = "Upate" class="btn btn-block btn-lg btn-danger"/>
-          </p>
-          <p>
-          <a href = "show_theater.php" class = "btn btn-block btn-lg btn-success" > Back </a>
-          </p>
-          <p>
-           <?php 
-            if ($is_update) {
-              echo "update successful.";
-            }
-          ?>
-          </p>
+    <form action="show_theater.php" method="post">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th align="center">name</th>
+            <th>gender</th>
+            <th>rank</th>
+            <th>position</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php 
+          select_staff_by_id($id);
+        ?></tbody>
+      </table>
+      
     </form>
+     <a href="show_theater.php" class = "btn btn-block btn-lg btn-warning"/> Back </a>
     </div>
 
 </div>

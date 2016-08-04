@@ -92,14 +92,13 @@
       <table class="table">
         <thead>
           <tr>
-            <th>Delete?</th>
             <th>#</th>
             <th align="center">name</th>
-            <th>province</th>
-            <th>city</th>
-            <th>manager</th>
-            <th>state</th>
-            <th>details</th>
+            <th>address</th>
+            <th>tel</th>
+            <th>region</th>
+            <th>staffs</th>
+            <th>manage</th>
           </tr>
         </thead>
         <tbody>
@@ -107,12 +106,12 @@
           select_theater();
         ?></tbody>
       </table>
-      <input type = "submit"  value = "Delete it!" class = "btn btn-block btn-lg btn-warning"/>
+      <!-- <input type = "submit"  value = "Delete it!" class = "btn btn-block btn-lg btn-warning"/> -->
     </form>
     <br/>
     <br/>
     <br/>
-    <h2>Add new theater?</h2>
+ <!--    <h2>Add new theater?</h2>
     <form action="show_theater.php" method="post" onsubmit="return check();">
       <div class="row">
         <div class="col-md-6">
@@ -200,7 +199,7 @@
         </div>
       </div>
       <input type = "submit"  value = "Submit" class="btn btn-block btn-lg btn-danger"/>
-    </form>
+    </form> -->
   </div>
 
 </div>

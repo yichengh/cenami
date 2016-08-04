@@ -1,17 +1,37 @@
 use yicheng;
 
-#drop table if exists theater;
+#drop table seat_sold;
+#drop table showing;
+#drop table staff;
+#drop table theater;
+
 CREATE TABLE IF NOT EXISTS theater (
-	id INT NOT NULL AUTO_INCREMENT,
+	id INT,
 	name VARCHAR(100),
-	manager VARCHAR(20),
-	province VARCHAR(20),
-	city VARCHAR(20),
-	address VARCHAR(100), #
-	investment_volume INT, # wan cny
-	state VARCHAR(20), # plan, under construction, open, close
+	address VARCHAR(200), #
+	tel VARCHAR(200), #
+	region_id INT, # 
 	PRIMARY KEY(id)
 );
+
+CREATE TABLE IF NOT EXISTS staff (
+	id INT,
+	name VARCHAR(100),
+	gender VARCHAR(10),
+	rank VARCHAR(20),
+	position VARCHAR(20),
+	theater_id INT, # 
+	PRIMARY KEY(id),
+	foreign key(theater_id) references theater(id)
+);
+
+CREATE TABLE IF NOT EXISTS region (
+	id INT,
+	name VARCHAR(100),
+	manager_id INT,
+	PRIMARY key(id)
+);
+
 
 #insert into theater(manager, name, province, city, address,investment_volume,state) values
 #("Xiaoming Zhang", "Mega Cineplex (Zhongguancun)", "Beijing", "Beijing", "Zhongguancun plaza shopping center", 1000, "open"),
@@ -53,4 +73,4 @@ CREATE TABLE IF NOT EXISTS seat_sold (
 	foreign key(showing_id) references showing(id)
 );
 
-insert into seat_sold values(6, 6, 6),(6, 6, 7),(6, 6, 8);
+#insert into seat_sold values(6, 6, 6),(6, 6, 7),(6, 6, 8);

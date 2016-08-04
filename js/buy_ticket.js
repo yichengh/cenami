@@ -28,5 +28,6 @@ $(document).ready(function(){
       		html.push("</div>");
       		$("#showing").html(html.join(''));
     	});
+    window.location.href = "#showing";
   	});
 });

@@ -49,14 +49,13 @@ function select_theater(){
         $sum ++;
         //$gg = selectgroupbyid($obj->GroupID);
         print "<tr>
-        <td> <input type='checkbox' name='delete[]' value='". $obj["id"] ."' /> </td>
-        <th scope=\"row\">". $sum  . "</th> 
+        <th scope=\"row\">". $obj["id"]  . "</th> 
         <td>". $obj["name"]    ."</td> 
-        <td>". $obj['province']." </td>
-        <td>". $obj['city']    ."</td> 
-        <td>". $obj['manager'] ."</td>
-        <td>". $obj['state']   ."</td>
+        <td>". $obj['address']." </td>
+        <td>". $obj['tel']    ."</td> 
+        <td> North America </td>
         <td> <a href=\"theater_detail.php?id=" .$obj["id"] ."\" >check</a></td>
+        <td> <a href=\"theater_manage.php?id=" .$obj["id"] ."\" >manage!</a></td>
         </tr>";
     }
 
@@ -64,6 +63,28 @@ function select_theater(){
     mysqli_free_result($stmt);
 }
 
+function select_staff_by_id($id){
+    $tsql = "SELECT * from staff where theater_id = $id;";
+    $stmt = query2($tsql);
+
+    /* Retrieve each row as a PHP object and display the results.*/
+    $sum = 0;
+    while( $obj = mysqli_fetch_array($stmt, MYSQLI_ASSOC) )
+    {
+        $sum ++;
+        //$gg = selectgroupbyid($obj->GroupID);
+        print "<tr>
+        <th scope=\"row\">". $sum  . "</th> 
+        <td>". $obj["name"]    ."</td> 
+        <td>". $obj['gender']." </td>
+        <td>". $obj['rank']    ."</td> 
+        <td>". $obj['position']    ."</td> 
+        </tr>";
+    }
+
+/* Free statement and connection resources. */
+    mysqli_free_result($stmt);
+}
 function select_theater2(){
     $tsql = "SELECT * from theater;";
     $stmt = query2($tsql);
@@ -102,8 +123,7 @@ function select_theater3(){
         print "<tr>
         <th scope=\"row\">". $sum  . "</th> 
         <td>". $obj["name"]    ."</td> 
-        <td>". $obj['province']." </td>
-        <td>". $obj['city']    ."</td> 
+        <td>". $obj['address']    ."</td> 
         <td> <button id=\"" .$obj["id"] ."\" >buy!</button></td>
         </tr>";
     }

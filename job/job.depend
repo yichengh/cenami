@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1470293212 source:d:\cenami\job\create_sql.cpp
+	<iostream>
+	<vector>
+	<cstdio>
+	<cstring>
+

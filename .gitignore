@@ -13,3 +13,9 @@ media/*
 
 #ignore exe files
 *.exe
+*.o
+
+
+#ignore csv files
+*.csv
+*.xls
