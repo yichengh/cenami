@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1470301483 source:d:\cenami\c++\code\csv.cpp
+	"CSV.h"
+
+1470301531 d:\cenami\c++\code\csv.h
+	<iostream>
+	<vector>
+	<cstdio>
+	<cstring>
+
+1470324786 source:d:\cenami\c++\code\make_cenami_data.cpp
+	<iostream>
+	<vector>
+	<cstdio>
+	<cstring>
+	<cstdlib>
+	<cmath>
+	<ctime>
+
