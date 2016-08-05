@@ -79,11 +79,14 @@ function select_staff_by_id($id){
         $sum ++;
         //$gg = selectgroupbyid($obj->GroupID);
         print "<tr>
+        <td> <input type='checkbox' name='delete[]' value='". $obj["id"] ."' /> </td>
         <th scope=\"row\">". $obj["id"]  . "</th> 
         <td>". $obj["name"]    ."</td> 
         <td>". $obj['gender']." </td>
         <td>". $obj['rank']    ."</td> 
-        <td>". $obj['position']    ."</td> 
+        <td>". $obj['position']    ."</td>
+        <td><a class=\"btn\" data-dialog=\"#popup-dialog\" data-effect=\"effect-fade-scale\"
+            onclick=\"return set(".$obj["id"].", '".$obj["name"]."');\">Update</a></td>
         </tr>";
     }
 
@@ -139,7 +142,7 @@ function select_theater3(){
 
 
 function select_movie(){
-    $tsql = "SELECT * from movie;";
+    $tsql = "SELECT * from movie order by released_date desc;";
     $stmt = query2($tsql);
 
     /* Retrieve each row as a PHP object and display the results.*/
@@ -155,7 +158,7 @@ function select_movie(){
         <td>". $obj['directors']    ."</td> 
         <td>". $obj['released_date']." </td>
         <td>". $obj['per_cost'] ."</td>
-        <td> <a href=\"staff_list.php?id=" .$obj["id"] ."\" >check</a></td>
+        
         </tr>";
     }
 
@@ -203,7 +206,7 @@ function select_movie3(){
 }
 
 function select_showing_by_id($id){
-    $tsql = "SELECT * from showing where theater_id = $id;";
+    $tsql = "SELECT * from showing where theater_id = $id order by start_time desc;";
     $stmt = query2($tsql);
 
     /* Retrieve each row as a PHP object and display the results.*/
@@ -217,7 +220,7 @@ function select_showing_by_id($id){
         <th scope=\"row\">". $sum  . "</th> 
         <td>". get_movie_name_by_id($obj["movie_id"])    ."</td> 
         <td>". date('Y-m-d',strtotime($obj['start_time'])) ."</td> 
-        <td>". date('h:i',strtotime($obj['start_time']))." </td>
+        <td>". date('H:i',strtotime($obj['start_time']))." </td>
         <td>". attendance($obj["id"]) ."</td>
         </tr>";
     }
@@ -226,7 +229,7 @@ function select_showing_by_id($id){
 }
 
 function select_showing_by_date($id, $date){
-    $tsql = "SELECT * from showing where theater_id = $id and date(start_time) = '$date';";
+    $tsql = "SELECT * from showing where theater_id = $id and date(start_time) = '$date' order by start_time;";
     $stmt = query2($tsql);
 
     /* Retrieve each row as a PHP object and display the results.*/
@@ -251,8 +254,8 @@ function select_showing_by_date($id, $date){
         $result = $result . "<tr>
         <th>". $sum  . "</th> 
         <td>". get_movie_name_by_id($obj["movie_id"])    ."</td> 
-        <td>". date('h:i',strtotime($obj['start_time'])) ."</td> 
-        <td>". date('h:i',strtotime($obj['end_time']))." </td>
+        <td>". date('H:i',strtotime($obj['start_time'])) ."</td> 
+        <td>". date('H:i',strtotime($obj['end_time']))." </td>
         <td>". $obj['price']." </td>
         <td> <a href='seat.php?id=".$obj["id"]."'>buy</a></td>
         </tr>";
@@ -314,6 +317,15 @@ function update_theater_by_id($id, $address, $manager, $investment_volume, $stat
     $stmt = query2($tsql);
 }
 
+function update_staff_by_id($id, $rank, $position){
+    $tsql = "update staff set 
+        rank = '".$rank."',
+        position = '".$position."'
+        where id = ". $id . ";";
+    $stmt = query2($tsql);
+}
+
+
 function delete_theater_by_id($id) {
     $tsql = "delete from theater where id = $id";
     $stmt = query2($tsql);
@@ -326,6 +338,12 @@ function delete_movie_by_id($id) {
 
 function delete_showing_by_id($id) {
     $tsql = "delete from showing where id = $id";
+    $stmt = query2($tsql);
+}
+
+
+function delete_staff_by_id($id) {
+    $tsql = "delete from staff where id = $id";
     $stmt = query2($tsql);
 }
 
@@ -343,15 +361,21 @@ function insert_showing($movie_id, $theater_id, $start, $end, $price) {
 }
 
 
+function insert_staff($name, $gender, $rank, $position, $id) {
+    $tsql = "insert into staff(name, gender, rank,
+     position, theater_id) values
+    ('$name', '$gender', '$rank', '$position', $id)";
+    $stmt = query2($tsql);
+}
+
 function insert_seat_sold($showing_id, $seat) {
     //echo $seat;
     $x = ord($seat[0]) - 65 + 1;
-    $y = $seat[1];
+    $y = substr($seat,1);
      $tsql = "insert into seat_sold values
      ($showing_id, $x, $y)";
     $stmt = query2($tsql);
 }
-
 
 function close_db(){
     global $conn;

@@ -101,8 +101,8 @@
                 </tr>
                 </tbody>
             </table>
-  <p> Increase  in two years : <span style="color:red;">3, 4, 7</span></p>
-  <p> Decline  in two years : <span style="color:blue;">2, 5, 9</span></p>
+            <p> Increase  in two years : <span style="color:red;">3, 4, 7</span></p>
+            <p> Decline  in two years : <span style="color:blue;">2, 5, 9</span></p>
 
   <h4>Profit rate:  </h4>
     <p>Vertical comparison : <span style="color:red;">red above average significant</span>, <span style="color:blue;">blue blow average significant.</span></p>
@@ -212,9 +212,9 @@
               </tbody>
 
             </table>
-  <p> Good : <span style="color:red;">8, 9</span></p>
-  <p> Bad : <span style="color:blue;">4</span></p>
-  <p> May have some problem : <span style="color:blue;">1,6</span></p>
+        <p> Good : <span style="color:red;">8, 9</span></p>
+        <p> Bad : <span style="color:blue;">4</span></p>
+        <p> May have some problem : <span style="color:blue;">1,6</span></p>
 
 
 
@@ -331,135 +331,135 @@
   <p> May have some problem : <span style="color:blue;">5</span></p>
 
    <h4> Summary:  </h4>
-<p>
-<b>#1 Magic Castle Cinema</b> <br/><div class="row">
-<div class="col-md-4">
-<span style="color:red;">Positive</span>
-</div>
-<div class="col-md-8">
-Nothing.
- </div></div><br/><div class="row">
-<div class="col-md-4">
-<span style="color:red;">Negative</span>
-</div>
-<div class="col-md-8">
-Low profit rate sometimes, may have problems.<br/>
-Pretty low attendance.<br/>
- </div></div><br/><b>#2 Cinema Magic stone</b> <br/><div class="row">
-<div class="col-md-4">
-<span style="color:red;">Positive</span>
-</div>
-<div class="col-md-8">
-Pretty high attendance.<br/>
- </div></div><br/><div class="row">
-<div class="col-md-4">
-<span style="color:red;">Negative</span>
-</div>
-<div class="col-md-8">
-Income decline for 2 years.<br/>
- </div></div><br/><b>#3 Magic Cinema Los Angeles</b> <br/><div class="row">
-<div class="col-md-4">
-<span style="color:red;">Positive</span>
-</div>
-<div class="col-md-8">
-Income increase for 2 years.<br/>
- </div></div><br/><div class="row">
-<div class="col-md-4">
-<span style="color:red;">Negative</span>
-</div>
-<div class="col-md-8">
-Nothing.
- </div></div><br/><b>#4 Jerry's Magic Motel</b> <br/><div class="row">
-<div class="col-md-4">
-<span style="color:red;">Positive</span>
-</div>
-<div class="col-md-8">
-Income increase for 2 years.<br/>
-Pretty high attendance.<br/>
- </div></div><br/><div class="row">
-<div class="col-md-4">
-<span style="color:red;">Negative</span>
-</div>
-<div class="col-md-8">
-Pretty low profit rate.<br/>
- </div></div><br/><b>#5 The Line Magic</b> <br/><div class="row">
-<div class="col-md-4">
-<span style="color:red;">Positive</span>
-</div>
-<div class="col-md-8">
-Nothing.
- </div></div><br/><div class="row">
-<div class="col-md-4">
-<span style="color:red;">Negative</span>
-</div>
-<div class="col-md-8">
-Income decline for 2 years.<br/>
-Low attendance sometimes, may have problems.<br/>
- </div></div><br/><b>#6 Magic Sunset Boulevard Cinema</b> <br/><div class="row">
-<div class="col-md-4">
-<span style="color:red;">Positive</span>
-</div>
-<div class="col-md-8">
-Nothing.
- </div></div><br/><div class="row">
-<div class="col-md-4">
-<span style="color:red;">Negative</span>
-</div>
-<div class="col-md-8">
-Low profit rate sometimes, may have problems.<br/>
-Pretty low attendance.<br/>
- </div></div><br/><b>#7 Cinema Magic stone</b> <br/><div class="row">
-<div class="col-md-4">
-<span style="color:red;">Positive</span>
-</div>
-<div class="col-md-8">
-Income increase for 2 years.<br/>
- </div></div><br/><div class="row">
-<div class="col-md-4">
-<span style="color:red;">Negative</span>
-</div>
-<div class="col-md-8">
-Nothing.
- </div></div><br/><b>#8 The Surrey Magic</b> <br/><div class="row">
-<div class="col-md-4">
-<span style="color:red;">Positive</span>
-</div>
-<div class="col-md-8">
-Pretty high profit rate.<br/>
- </div></div><br/><div class="row">
-<div class="col-md-4">
-<span style="color:red;">Negative</span>
-</div>
-<div class="col-md-8">
-Pretty low attendance.<br/>
- </div></div><br/><b>#9 The Mark Magic</b> <br/><div class="row">
-<div class="col-md-4">
-<span style="color:red;">Positive</span>
-</div>
-<div class="col-md-8">
-Pretty high profit rate.<br/>
- </div></div><br/><div class="row">
-<div class="col-md-4">
-<span style="color:red;">Negative</span>
-</div>
-<div class="col-md-8">
-Income decline for 2 years.<br/>
- </div></div><br/><b>#10 the Quin Magic</b> <br/><div class="row">
-<div class="col-md-4">
-<span style="color:red;">Positive</span>
-</div>
-<div class="col-md-8">
-Nothing.
- </div></div><br/><div class="row">
-<div class="col-md-4">
-<span style="color:red;">Negative</span>
-</div>
-<div class="col-md-8">
-Nothing.
- </div></div><br/></p>
+            <p>
+            <b>#1 Magic Castle Cinema</b> <br/><div class="row">
+            <div class="col-md-4">
+            <span style="color:red;">Positive</span>
+            </div>
+            <div class="col-md-8">
+            Nothing.
+             </div></div><br/><div class="row">
+            <div class="col-md-4">
+            <span style="color:red;">Negative</span>
+            </div>
+            <div class="col-md-8">
+            Low profit rate sometimes, may have problems.<br/>
+            Pretty low attendance.<br/>
+             </div></div><br/><b>#2 Cinema Magic stone</b> <br/><div class="row">
+            <div class="col-md-4">
+            <span style="color:red;">Positive</span>
+            </div>
+            <div class="col-md-8">
+            Pretty high attendance.<br/>
+             </div></div><br/><div class="row">
+            <div class="col-md-4">
+            <span style="color:red;">Negative</span>
+            </div>
+            <div class="col-md-8">
+            Income decline for 2 years.<br/>
+             </div></div><br/><b>#3 Magic Cinema Los Angeles</b> <br/><div class="row">
+            <div class="col-md-4">
+            <span style="color:red;">Positive</span>
+            </div>
+            <div class="col-md-8">
+            Income increase for 2 years.<br/>
+             </div></div><br/><div class="row">
+            <div class="col-md-4">
+            <span style="color:red;">Negative</span>
+            </div>
+            <div class="col-md-8">
+            Nothing.
+             </div></div><br/><b>#4 Jerry's Magic Motel</b> <br/><div class="row">
+            <div class="col-md-4">
+            <span style="color:red;">Positive</span>
+            </div>
+            <div class="col-md-8">
+            Income increase for 2 years.<br/>
+            Pretty high attendance.<br/>
+             </div></div><br/><div class="row">
+            <div class="col-md-4">
+            <span style="color:red;">Negative</span>
+            </div>
+            <div class="col-md-8">
+            Pretty low profit rate.<br/>
+             </div></div><br/><b>#5 The Line Magic</b> <br/><div class="row">
+            <div class="col-md-4">
+            <span style="color:red;">Positive</span>
+            </div>
+            <div class="col-md-8">
+            Nothing.
+             </div></div><br/><div class="row">
+            <div class="col-md-4">
+            <span style="color:red;">Negative</span>
+            </div>
+            <div class="col-md-8">
+            Income decline for 2 years.<br/>
+            Low attendance sometimes, may have problems.<br/>
+             </div></div><br/><b>#6 Magic Sunset Boulevard Cinema</b> <br/><div class="row">
+            <div class="col-md-4">
+            <span style="color:red;">Positive</span>
+            </div>
+            <div class="col-md-8">
+            Nothing.
+             </div></div><br/><div class="row">
+            <div class="col-md-4">
+            <span style="color:red;">Negative</span>
+            </div>
+            <div class="col-md-8">
+            Low profit rate sometimes, may have problems.<br/>
+            Pretty low attendance.<br/>
+             </div></div><br/><b>#7 Cinema Magic stone</b> <br/><div class="row">
+            <div class="col-md-4">
+            <span style="color:red;">Positive</span>
+            </div>
+            <div class="col-md-8">
+            Income increase for 2 years.<br/>
+             </div></div><br/><div class="row">
+            <div class="col-md-4">
+            <span style="color:red;">Negative</span>
+            </div>
+            <div class="col-md-8">
+            Nothing.
+             </div></div><br/><b>#8 The Surrey Magic</b> <br/><div class="row">
+            <div class="col-md-4">
+            <span style="color:red;">Positive</span>
+            </div>
+            <div class="col-md-8">
+            Pretty high profit rate.<br/>
+             </div></div><br/><div class="row">
+            <div class="col-md-4">
+            <span style="color:red;">Negative</span>
+            </div>
+            <div class="col-md-8">
+            Pretty low attendance.<br/>
+             </div></div><br/><b>#9 The Mark Magic</b> <br/><div class="row">
+            <div class="col-md-4">
+            <span style="color:red;">Positive</span>
+            </div>
+            <div class="col-md-8">
+            Pretty high profit rate.<br/>
+             </div></div><br/><div class="row">
+            <div class="col-md-4">
+            <span style="color:red;">Negative</span>
+            </div>
+            <div class="col-md-8">
+            Income decline for 2 years.<br/>
+             </div></div><br/><b>#10 the Quin Magic</b> <br/><div class="row">
+            <div class="col-md-4">
+            <span style="color:red;">Positive</span>
+            </div>
+            <div class="col-md-8">
+            Nothing.
+             </div></div><br/><div class="row">
+            <div class="col-md-4">
+            <span style="color:red;">Negative</span>
+            </div>
+            <div class="col-md-8">
+            Nothing.
+             </div></div><br/></p>
 
 
-<a class="btn btn-primary" href="index.html" role="button">Back</a>
+      <a class="btn btn-primary" href="index.html" role="button">Back</a>
 
             <!-- \ Table -->
 

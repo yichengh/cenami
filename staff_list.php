@@ -17,7 +17,14 @@
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="style.css"></head>
-
+<link href="css/jquery.popup.css" rel="stylesheet" type="text/css">
+<script language="javascript">
+      function set($id, $name){
+        $("#hyc").html($name);
+        $("#hyc2").html("<input type=\"hidden\" name=\"staff_id\" value =\"" +$id + "\"/>");
+        return true;
+      }
+</script>
 <body class="shortcodes">
 
 <!-- / Site Header -->
@@ -47,15 +54,28 @@
       $id = $_POST['id'];
       //echo "POST ID". $id;
     }
-    $is_update = 0;
-    if (isset($_POST['address'])){
-      $address = $_POST['address'];
-      $manager = $_POST['manager'];
-      $investment_volume = $_POST['investment_volume'];
-      $state = $_POST['state'];
-      update_theater_by_id($id, $address, $manager, $investment_volume, $state);
-      $is_update = 1;
+
+    if (isset($_POST['staff_id'])){
+      $staff_id = $_POST['staff_id'];
+      $rank = $_POST['rank'];
+      $position = $_POST['position'];
+      update_staff_by_id($staff_id, $rank, $position);
     }
+    if (isset($_POST['name'])){
+      $name = $_POST['name'];
+      $rank = $_POST['rank'];
+      $gender = $_POST['gender'];
+      $position = $_POST['position'];
+      insert_staff($name, $gender, $rank, $position, $id);
+    }
+
+    if (isset($_POST["delete"])){
+          $de = $_POST["delete"];
+          $N = count($de);
+          for ($i = 0; $i < $N; $i++){
+            delete_staff_by_id($de[$i]);
+          }
+        }
   ?>
 
     <?php 
@@ -63,15 +83,18 @@
         $obj = select_theater_by_id($id);
         print "<h3><i>" . $obj["name"] . " </i>'s Staff List</h3>"
     ?>
-    <form action="show_theater.php" method="post">
+    <form action="staff_list.php" method="post">
+      <input type="hidden" name="id" value = <?php print "'$id'";?>/>
       <table class="table">
         <thead>
           <tr>
+            <th>Delete?</th>
             <th>ID</th>
             <th align="center">name</th>
             <th>gender</th>
             <th>rank</th>
             <th>position</th>
+            <th>update?</th>
           </tr>
         </thead>
         <tbody>
@@ -79,10 +102,94 @@
           select_staff_by_id($id);
         ?></tbody>
       </table>
-      
+      <input type = "submit"  value = "Delete it!" class = "btn btn-block btn-lg btn-warning"/>
+      <p> <a href="show_theater.php" class = "btn btn-block btn-lg btn-primary" > Back </a> </p>
     </form>
-     <a href="show_theater.php" class = "btn btn-block btn-lg btn-warning" > Back </a>
+     
+
+    <h2>Add new staff?</h2>
+    <form action="staff_list.php" method="post" onsubmit="return check();">
+      <input type="hidden" name="id" value = <?php print "'$id'";?>/>
+      <!-- <div class="row"> -->
+        <p class="alert bg-primary">
+          name:
+          <input id = "name" name="name" class="form-control"/ >
+        </p>
+      <!-- </div> -->
+
+      <div class="row">
+        <div class="col-md-4">
+          <p class="alert bg-success">
+            gender:
+            <br/>
+            <select id = "gender" name="gender" class="form-control">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </p>
+        </div>
+        <div class="col-md-4">
+          <p class="alert bg-success">
+            rank:
+            <select id = "rank" name="rank" class="form-control" >
+              <option value="officer">officer</option>
+              <option value="senior">senior</option>
+              <option value="expert">expert</option>
+              <option value="assistant">assistant</option>
+            </select>
+          </p>
+        </div>
+        <div class="col-md-4">
+          <p class="alert bg-success">
+            position:
+            <select id = "position" name="position" class="form-control" >
+             <option value="region manager">region manager</option>
+             <option value="manager">manager</option>
+             <option value="staff">staff</option>
+      
+           </select>
+          </p>
+        </div>
+      </div>
+      <input type = "submit"  value = "Submit" class="btn btn-block btn-lg btn-danger"/>
+    </form>
     </div>
+
+
+<div class="popup effect-fade-scale" id="popup-dialog">
+        <div class="popup-content">
+        
+          <form action="staff_list.php" method="post">
+          <p>
+            <input type="hidden" name="id" value = <?php print "'$id'";?>/>
+            <p id="hyc">
+            </p>
+            <div id="hyc2"></div>
+            rank:<br/>
+            <select id = "rank" name="rank">
+              <option value="officer">officer</option>
+              <option value="senior">senior</option>
+              <option value="expert">expert</option>
+              <option value="assistant">assistant</option>
+            </select><br/><br/>
+            position:<br/>
+            <select id = "position" name="position">
+             <option value="region manager">region manager</option>
+             <option value="manager">manager</option>
+             <option value="staff">staff</option>
+            </select>
+           <br/><br/>
+          </p>
+      <p>
+      <p> <input type = "submit"  class="btn btn-danger" value = "Submit" />
+      &nbsp;&nbsp;
+        <button class="popup-close btn btn-danger">Close</button> </p>
+      </p>
+    </form>
+
+
+  </div>
+      </div>
 
 </div>
 <!-- / Site Main -->
@@ -97,7 +204,41 @@
 
 <!-- Bootstrap -->
 <script src="js/bootstrap/bootstrap.min.js"></script>
+<script src="js/jquery.popup.js"></script>
+  <script src="js/jquery.popup.dialog.min.js"></script>
+  <script>
+  (function($){
+          $(function(){
+            $('[data-dialog]').on('click', function(e){
+              var $this = $(e.target);
+              $($this.data('dialog')).attr('class', 'popup '+$this.data('effect'));
+            });
+          });
+        })(jQuery);
+    $(document).ready(function(){
+      $('.popup').popup({
+        close: function(){
+          $(this).find('.embed-container').empty();
+        }
+      });
+    
+      $(document).on('click', '[data-action="watch-video"]', function(e){
 
+        e.preventDefault();
+
+        var plugin = $('#popup-video.popup').data('popup');
+
+        $('#popup-video.popup .embed-container').html(
+          '<iframe src="'
+          + e.currentTarget.href
+          + '?autoplay=1" frameborder="0" allowfullscreen />'
+        );
+
+        plugin.open();
+      });
+
+    });
+</script>
 <!-- \ JS Files  -->
 </body>
 </html>

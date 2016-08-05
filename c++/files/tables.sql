@@ -1,9 +1,9 @@
 use yicheng;
 
-#drop table seat_sold;
-#drop table showing;
-#drop table staff;
-#drop table theater;
+drop table seat_sold;
+drop table showing;
+drop table staff;
+drop table theater;
 
 CREATE TABLE IF NOT EXISTS theater (
 	id INT,
@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS theater (
 );
 
 CREATE TABLE IF NOT EXISTS staff (
-	id INT,
+	id INT AUTO_INCREMENT,
 	name VARCHAR(100),
 	gender VARCHAR(10),
 	rank VARCHAR(20),

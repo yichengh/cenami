@@ -1,14 +1,14 @@
 <?php include 'db.php'; ?>
 
 <?php
-	connect_db();
-	$theater_id = $_POST["theater_id"];
-	$date1 = $_POST["date1"];
-	$date2 = $_POST["date2"];
-	$date3 = $_POST["date3"];
-	//print $date;
+    connect_db();
+    $theater_id = $_POST["theater_id"];
+    $date1 = $_POST["date1"];
+    $date2 = $_POST["date2"];
+    $date3 = $_POST["date3"];
+    //print $date;
 
-	//$stmt = select_showing_by_date($theater_id, $date);
+    //$stmt = select_showing_by_date($theater_id, $date);
 
 
     /* Retrieve each row as a PHP object and display the results.*/

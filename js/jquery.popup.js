@@ -15,7 +15,7 @@
 (function($) { "use strict";
 
     /** Клик по подложке */ 
-	function _overlay() {
+    function _overlay() {
         !this.options.modal && this.close();
     }
 
@@ -32,7 +32,7 @@
         this.$popup = $(element).addClass('popup');
 
         // Если повторная инициализация - уничтожение предыдущей копии плагина
-		if (this.$popup.data('popup') instanceof $.popup) {
+        if (this.$popup.data('popup') instanceof $.popup) {
             this.$popup.data('popup').destroy();
         }
 
@@ -97,7 +97,7 @@
     /** Функция позиционирования всплывающего блока */ 
     $.popup.prototype.realign = function() {
 
-		// Если есть пользовательская обработка realign
+        // Если есть пользовательская обработка realign
         var realign = this.options.realign;
         realign instanceof Function && realign.call(this.$popup.get(0));
 

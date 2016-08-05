@@ -83,7 +83,6 @@
             <th>directors</th>
             <th>released_date</th>
             <th>cost/ticket</th>
-            <th>detail</th>
           </tr>
         </thead>
         <tbody>

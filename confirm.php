@@ -46,25 +46,25 @@
     <h4>Please Confirm your choice. </h4>
     <?php 
         connect_db();
-		if (isset($_POST["seats"])){
-    		$seats = $_POST["seats"];
-    		//echo $de;
-    		$showing_id = $_POST["showing_id"];
-    		//echo $showing_id;
- 		}
- 		$A = explode(',',$seats);
- 		//echo count($A);
- 		$tsql = "SELECT * from showing where id = $showing_id;";
-    	$stmt = query2($tsql);
-		$obj = mysqli_fetch_array($stmt, MYSQLI_ASSOC);
-		$price = $obj["price"] * count($A);
-		print "<p class=\"alert bg-primary\"><b>movie: </b>".get_movie_name_by_id($obj["movie_id"]) ."</p>";
-		print "<p class=\"alert bg-success\"><b>date: </b>".date('Y-m-d',strtotime($obj['start_time'])) ."</p>";
-		print "<p class=\"alert bg-info\"><b>start time: </b>".date('h:i',strtotime($obj['start_time'])) ."</p>";
-		print "<p class=\"alert bg-warning\"><b>seats: </b>".$seats ."</p>";
-		print "<p class=\"alert bg-danger\" id=\"p1\" value=\"$price\"><b>price: </b>".$price ."</p>";
+        if (isset($_POST["seats"])){
+            $seats = $_POST["seats"];
+            //echo $de;
+            $showing_id = $_POST["showing_id"];
+            //echo $showing_id;
+        }
+        $A = explode(',',$seats);
+         //echo count($A);
+        $tsql = "SELECT * from showing where id = $showing_id;";
+        $stmt = query2($tsql);
+        $obj = mysqli_fetch_array($stmt, MYSQLI_ASSOC);
+        $price = $obj["price"] * count($A);
+        print "<p class=\"alert bg-primary\"><b>movie: </b>".get_movie_name_by_id($obj["movie_id"]) ."</p>";
+        print "<p class=\"alert bg-success\"><b>date: </b>".date('Y-m-d',strtotime($obj['start_time'])) ."</p>";
+        print "<p class=\"alert bg-info\"><b>start time: </b>".date('H:i',strtotime($obj['start_time'])) ."</p>";
+        print "<p class=\"alert bg-warning\"><b>seats: </b>".$seats ."</p>";
+        print "<p class=\"alert bg-danger\" id=\"p1\" value=\"$price\"><b>price: </b>".$price ."</p>";
     ?>
-	<br/><br/><br/><br/>
+    <br/><br/><br/><br/>
     
 
     
@@ -79,19 +79,19 @@ print "<input type=\"hidden\" name=\"seats_confirm\" value='".$seats."'>";
 print "<input type=\"hidden\" name=\"showing_id\" value='".$showing_id."'>";
 ?>
 <div class="radio radio-primary">
-	<h5>
-		<input type="radio" name="radio1" value="0" checked>
-		<label for="radio1">None</label>
-	</h5>
+    <h5>
+        <input type="radio" name="radio1" value="0" checked>
+        <label for="radio1">None</label>
+    </h5>
 </div>
 <div class="row">
 <div class="col-md-8">
-	<div class="radio radio-danger">
-	<h5>
-		<input type="radio" name="radio1" value="5" >
-		<label for="radio1">Chinese Valentine's Day Special Limited Tickets (+5)</label>
-	</h5>
-	</div>
+    <div class="radio radio-danger">
+    <h5>
+        <input type="radio" name="radio1" value="5" >
+        <label for="radio1">Chinese Valentine's Day Special Limited Tickets (+5)</label>
+    </h5>
+    </div>
 </div>
 <div class="col-md-4">
 <img src="images/s1.jpg" width="150"/>
@@ -100,12 +100,12 @@ print "<input type=\"hidden\" name=\"showing_id\" value='".$showing_id."'>";
 <br/>
 <div class="row">
 <div class="col-md-8">
-	<div class="radio radio-danger">
-	<h5>
-		<input type="radio" name="radio1" value="5" >
-		<label for="radio1">5 Year's anniversary Tickets (+5)</label>
-	</h5>
-	</div>
+    <div class="radio radio-danger">
+    <h5>
+        <input type="radio" name="radio1" value="5" >
+        <label for="radio1">5 Year's anniversary Tickets (+5)</label>
+    </h5>
+    </div>
 </div>
 <div class="col-md-4">
 <img src="images/s2.jpg" width="150"/>
@@ -115,25 +115,25 @@ print "<input type=\"hidden\" name=\"showing_id\" value='".$showing_id."'>";
 <h4>Select your favourite Snacks Package.</h4>
 <div class="radio radio-primary">
 <p>
-	<input type="radio" name="radio2" value="0" checked>
-	<label for="radio2">None</label>
+    <input type="radio" name="radio2" value="0" checked>
+    <label for="radio2">None</label>
 </p>
 </div>
 <div class="radio radio-danger">
 <p>
-	<input type="radio" name="radio2" value="15">
-	<label for="radio2">popcorn + spring water (+15)</label>
+    <input type="radio" name="radio2" value="15">
+    <label for="radio2">popcorn + spring water (+15)</label>
 </p>
 </div>
 <div class="radio radio-danger">
 <p>
-	<input type="radio" name="radio2" value="20">
-	<label for="radio2">popcorn + orange juice (+20)</label>
-</p>	
+    <input type="radio" name="radio2" value="20">
+    <label for="radio2">popcorn + orange juice (+20)</label>
+</p>    
 </div>
-	<h4 id = "p2" class="alert bg-danger"> <b>total price: </b>
-  <?php print $price ?> </h4>
-  <input type = "submit" value = "Confirm!" class = "btn btn-block btn-lg btn-warning"/>
+    <h4 id = "p2" class="alert bg-danger"> <b>total price: </b>
+    <?php print $price ?> </h4>
+    <input type = "submit" value = "Confirm!" class = "btn btn-block btn-lg btn-warning"/>
 </form>
 
 </div>

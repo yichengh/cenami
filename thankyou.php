@@ -57,8 +57,11 @@
 
         if (isset($_POST["seats_confirm"])){
     		  $seats = $_POST["seats_confirm"];
+          // echo $seats;
           $A = explode(',',$seats);
     		  $showing_id = $_POST["showing_id"];
+          // print $A;
+          // print $showing_id;
           $N = count($A);
           for ($i = 0; $i < $N; $i++)
             insert_seat_sold($showing_id, $A[$i]);

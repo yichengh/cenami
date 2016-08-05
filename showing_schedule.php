@@ -85,12 +85,13 @@
           $minute = $_POST['minute'];
           $price = $_POST['price'];
           $start = mktime($hour,$minute,0,$month,$day,$year);
-          $start_time = date("Y-m-d h:i:ss", $start);
+          $start_time = date("Y-m-d H:i:s", $start);
+          //echo $ss;
           //$time = date("", $d);
           //insert_movie_by_id($id, $date, $cost);
           //insert_theater($name, $manager, $province, $city, $address, $investment_volume, $state);
           $end = strtotime("+2 hours", $start);
-          $end_time = date("Y-m-d h:i:ss", $end);
+          $end_time = date("Y-m-d H:i:s", $end);
           insert_showing($movie_id, $theater_id, $start_time, $end_time, $price);
           //echo $time;
         }
@@ -147,7 +148,7 @@
             <br/>
             <select id = "year" name="year" class="form-control">
               <option value="2016">2016</option>
-              <option value="2016">2017</option>
+              <option value="2017">2017</option>
             </select>
           </p>
         </div>
