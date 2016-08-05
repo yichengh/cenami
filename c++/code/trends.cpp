@@ -40,11 +40,12 @@ void print(double x, double &last_x) {
 }
 
 int main() {
-    CSV A("trends.csv");
-    freopen("trends_output.txt", "w", stdout);
-    //for (int i = 0; i < A.n; i++)
-      //  for (int j = 0; j < A.m; j++)
-        //    cout << A.get_data(i, j) << endl;
+    CSV A("files/trends.csv");
+    freopen("files/trends_output.txt", "w", stdout);
+//    for (int i = 0; i < A.n; i++)
+//        for (int j = 0; j < A.m; j++)
+//            cout << A.get_data(i, j) << endl;
+    //return 0;
     int t = 0;
 
     double last_x = -1, last_y = -1, last_z = -1;
@@ -56,7 +57,7 @@ int main() {
         double s = x + y + z;
         x /= s, y /= s, z /= s;
         cout << "<tr>" << endl;
-        cout << "<th scope=\"row\">" << A.get_data(i, 0) << "1</th>" << endl;
+        cout << "<th scope=\"row\">" << A.get_data(i, 0) << "</th>" << endl;
         print(x, last_x);
         print(y, last_y);
         print(z, last_z);

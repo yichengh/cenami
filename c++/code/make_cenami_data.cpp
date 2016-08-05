@@ -6,7 +6,7 @@
 #include <cmath>
 #include <ctime>
 using namespace std;
-const int NID = 5;
+const int NID = 10;
 // miu = 0, sigma = 1
 // X = X * V + E for N(E,V)
 double gaussrand()
