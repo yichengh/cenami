@@ -23,17 +23,17 @@ double calc(CSV &A, int i, int p1, int p2, int num) {
     return log(s1) * s2;
 }
 
-string up = "<img src=\"/images/up.jpg\" width=\"20\" height=\"20\"></td>";
-string down = "<img src=\"/images/down.jpg\" width=\"20\" height=\"20\"></td>";
+string up = "<img src=\"/images/up.jpg\" width=\"20\" height=\"20\">";
+string down = "<img src=\"/images/down.jpg\" width=\"20\" height=\"20\">";
 
 void print(double x, double &last_x) {
     if (last_x < 0) {
-        printf("<td>%.1lf</td>\n", x * 100);
+        printf("<td>%.1lf%%</td>\n", x * 100);
     } else
     if (x > last_x) {
-        printf("<td>%.1lf%s</td>\n", x * 100, up.c_str());
+        printf("<td>%.1lf%%%s</td>\n", x * 100, up.c_str());
     } else {
-        printf("<td>%.1lf%s</td>\n", x * 100, down.c_str());
+        printf("<td>%.1lf%%%s</td>\n", x * 100, down.c_str());
     }
 
     last_x = x;

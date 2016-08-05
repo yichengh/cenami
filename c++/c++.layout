@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="code\CSV.cpp" open="1" top="0" tabpos="2">
+	<File name="code\CSV.cpp" open="1" top="0" tabpos="1">
 		<Cursor position="0" topLine="0" />
 	</File>
-	<File name="code\CSV.h" open="1" top="0" tabpos="3">
+	<File name="code\CSV.h" open="0" top="0" tabpos="3">
 		<Cursor position="0" topLine="0" />
 	</File>
-	<File name="code\trends.cpp" open="1" top="1" tabpos="1">
-		<Cursor position="441" topLine="5" />
+	<File name="code\trends.cpp" open="1" top="1" tabpos="2">
+		<Cursor position="666" topLine="49" />
 	</File>
 </CodeBlocks_layout_file>

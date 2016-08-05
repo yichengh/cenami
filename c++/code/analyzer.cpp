@@ -262,7 +262,7 @@ int main() {
     FILE *out = fopen("summary.txt", "w");
     fprintf(out, "<p>\n");
     for (int i = 1; i <= NID; i++) {
-        fprintf(out, "<b>#%d, %s</b> <br/>", i, cinema_name[i].c_str());
+        fprintf(out, "<b>#%d %s</b> <br/>", i, cinema_name[i].c_str());
         //cout << i << endl;
         //cout << "Pos:" << endl;
         fprintf(out, "<div class=\"row\">\n");
@@ -274,7 +274,7 @@ int main() {
             fprintf(out, "%s<br/>\n", Pos[i][j].c_str());
         }
         if (Pos[i].size() == 0)
-            fprintf(out, "Nothing\n");
+            fprintf(out, "Nothing.\n");
         fprintf(out, " </div></div><br/>");
         fprintf(out, "<div class=\"row\">\n");
         fprintf(out, "<div class=\"col-md-4\">\n");
@@ -285,7 +285,7 @@ int main() {
             fprintf(out, "%s<br/>\n", Neg[i][j].c_str());
         }
         if (Neg[i].size() == 0)
-            fprintf(out, "Nothing\n");
+            fprintf(out, "Nothing.\n");
         fprintf(out, " </div></div><br/>");
     }
     fprintf(out, "</p>\n");

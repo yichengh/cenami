@@ -16,13 +16,16 @@ function loadHeader() {
             <a href=\"index.html\">Index</a> \
         </li> \
         <li> \
-            <a href=\"show_movie.php\">Movie Manage</a> \
+            <a href=\"show_movie.php\">Movie Manager</a> \
         </li> \
         <li> \
-            <a href=\"show_theater.php\">Theater Manage</a> \
+            <a href=\"show_theater.php\">Theater Manager</a> \
         </li> \
         <li> \
-            <a href=\"trends_online.php\">Trends Track</a> \
+            <a href=\"trends_online.php\">Trends Tracker</a> \
+        </li> \
+        <li> \
+            <a href=\"summary.php\">Business Analyzer</a> \
         </li> \
         <li> \
             <a href=\"buy_ticket.php\">Buy Ticket</a> \

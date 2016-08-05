@@ -8,9 +8,6 @@
 	<link rel="stylesheet" type="text/css" href="css/demo.css" />
 	<link rel="stylesheet" type="text/css" href="css/component.css" />
 	<script src="js/modernizr-custom.js"></script>
-	<!--[if IE]>
-		<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
-	<![endif]-->
 </head>
 <body>
 	<header class="header">
@@ -790,7 +787,6 @@
 	<script src="js/jQuery/jquery-2.1.1.js"></script>
 
 	<script src="js/classie.js"></script>
-	<!-- <script src="js/seats.js"></script> -->
-	<script src="js/main.js"></script>
+	<script src="js/seat.js"></script>
 </body>
 </html>

@@ -81,7 +81,7 @@
       </table>
       
     </form>
-     <a href="show_theater.php" class = "btn btn-block btn-lg btn-warning"/> Back </a>
+     <a href="show_theater.php" class = "btn btn-block btn-lg btn-warning" > Back </a>
     </div>
 
 </div>

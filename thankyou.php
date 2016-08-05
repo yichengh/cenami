@@ -45,16 +45,14 @@
 
     <h2>Thank you! </h2>
     <?php
-$arr=range(1,10);
-shuffle($arr);
-print "<p>Your ticketing number is : ";
-foreach($arr as $values)
-{
-  echo $values;
-}
-print "</p>";
-?>
-    <?php 
+        $arr=range(1,10);
+        shuffle($arr);
+        print "<p>Your ticketing number is : ";
+        foreach($arr as $values)
+        {
+          echo $values;
+        }
+        print "</p>";
         connect_db();
 
         if (isset($_POST["seats_confirm"])){
